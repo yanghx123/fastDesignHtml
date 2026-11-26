@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style="">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="web_standard" name="shell-type">
+  <link
+    href="./style/style1.css"
+    rel="stylesheet">
+  <link
+    href="./style/style2.css"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap"
+    rel="stylesheet">
+  <style>
+    @layer base {
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        overscroll-behavior: none;
+      }
+
+      main>:first-child {
+        margin-top: 0 !important;
+      }
+
+      main>:last-child {
+        margin-bottom: 0 !important;
+      }
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+  <script src="./js/tailwindcss.js"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "tertiary-fixed": "#e9ddff",
+            "secondary-container": "#2170e4",
+            "surface-dim": "#d2d9f4",
+            "secondary-fixed": "#d8e2ff",
+            "tertiary": "#6b38d4",
+            "on-secondary-container": "#fefcff",
+            "on-primary-container": "#fffbff",
+            "on-tertiary-fixed": "#23005c",
+            "inverse-surface": "#283044",
+            "tertiary-fixed-dim": "#d0bcff",
+            "surface": "#faf8ff",
+            "surface-container-high": "#e2e7ff",
+            "surface-container-low": "#f2f3ff",
+            "outline": "#767586",
+            "primary-container": "#6063ee",
+            "on-tertiary": "#ffffff",
+            "surface-container": "#eaedff",
+            "surface-tint": "#494bd6",
+            "surface-variant": "#dae2fd",
+            "tertiary-container": "#8455ef",
+            "on-tertiary-fixed-variant": "#5516be",
+            "error": "#ba1a1a",
+            "on-secondary-fixed": "#001a42",
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed-dim": "#adc6ff",
+            "on-secondary-fixed-variant": "#004395",
+            "on-primary": "#ffffff",
+            "on-error-container": "#93000a",
+            "on-primary-fixed": "#07006c",
+            "on-error": "#ffffff",
+            "on-primary-fixed-variant": "#2f2ebe",
+            "primary-fixed-dim": "#c0c1ff",
+            "secondary": "#0058be",
+            "surface-bright": "#faf8ff",
+            "primary-fixed": "#e1e0ff",
+            "inverse-primary": "#c0c1ff",
+            "on-secondary": "#ffffff",
+            "error-container": "#ffdad6",
+            "inverse-on-surface": "#eef0ff",
+            "primary": "#4648d4",
+            "on-surface-variant": "#464554",
+            "on-surface": "#131b2e",
+            "on-background": "#131b2e",
+            "background": "#faf8ff",
+            "on-tertiary-container": "#fffbff",
+            "surface-container-highest": "#dae2fd",
+            "outline-variant": "#c7c4d7"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "margin": "2rem",
+            "gutter": "1.5rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "margin-mobile": "1rem",
+            "space-xl": "2.5rem",
+            "space-sm": "0.5rem",
+            "gutter-mobile": "1rem"
+          },
+          fontFamily: {
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "display-mobile": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "display": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "headline-lg": ["40px", {
+              "lineHeight": "48px",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "700"
+            }],
+            "headline-lg-mobile": ["28px", {
+              "lineHeight": "36px",
+              "letterSpacing": "-0.015em",
+              "fontWeight": "700"
+            }],
+            "headline-md": ["28px", {
+              "lineHeight": "36px",
+              "letterSpacing": "-0.015em",
+              "fontWeight": "600"
+            }],
+            "display-mobile": ["36px", {
+              "lineHeight": "44px",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "800"
+            }],
+            "label-sm": ["11px", {
+              "lineHeight": "14px",
+              "letterSpacing": "0.03em",
+              "fontWeight": "600"
+            }],
+            "headline-sm": ["20px", {
+              "lineHeight": "28px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "600"
+            }],
+            "label-md": ["12px", {
+              "lineHeight": "16px",
+              "letterSpacing": "0.02em",
+              "fontWeight": "600"
+            }],
+            "label-lg": ["14px", {
+              "lineHeight": "20px",
+              "letterSpacing": "0.01em",
+              "fontWeight": "600"
+            }],
+            "body-sm": ["13px", {
+              "lineHeight": "20px",
+              "letterSpacing": "0em",
+              "fontWeight": "400"
+            }],
+            "display": ["56px", {
+              "lineHeight": "64px",
+              "letterSpacing": "-0.03em",
+              "fontWeight": "800"
+            }],
+            "body-lg": ["18px", {
+              "lineHeight": "28px",
+              "letterSpacing": "-0.005em",
+              "fontWeight": "400"
+            }],
+            "body-md": ["15px", {
+              "lineHeight": "24px",
+              "letterSpacing": "0em",
+              "fontWeight": "400"
+            }]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+
+<body class="bg-surface font-body-md text-on-surface antialiased">
+  <header class="fixed top-0 left-0 right-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+    <div class="h-16 max-w-[1280px] mx-auto px-margin flex items-center justify-between">
+      <div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-sm group" data-path="home"
+          href="#">
+          <div
+            class="w-9 h-9 rounded-lg bg-primary-container flex items-center justify-center text-on-primary-container shadow-[0_4px_12px_rgba(70,72,212,0.2)]">
+            <span class="material-symbols-outlined text-[20px]">auto_awesome</span></div>
+          <div class="flex flex-col"><span
+              class="font-headline-sm text-headline-sm tracking-tight text-on-surface leading-none">Fast
+              Design</span><span class="font-label-sm text-label-sm text-on-surface-variant tracking-wider">智能快捷设计工具</span></div>
+        </a>
+        <!-- <nav class="hidden xl:flex items-center gap-space-sm"
+          data-active-classes="bg-surface-container-high text-on-surface font-semibold rounded-lg px-3 py-1.5"><a
+            class="px-3 py-1.5 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors"
+            data-path="features" href="#">功能特点</a><a
+            class="px-3 py-1.5 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors"
+            data-path="workflow" href="#">工作流演示</a><a
+            class="px-3 py-1.5 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors"
+            data-path="wallpaper-maker" href="#">手机壁纸制作</a><a
+            class="px-3 py-1.5 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors"
+            data-path="poster-ai" href="#">海报生成</a><a
+            class="px-3 py-1.5 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors"
+            data-path="showcase" href="#">客户案例</a><a
+            class="px-3 py-1.5 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors"
+            data-path="pricing" href="#">价格定价</a></nav> -->
+      </div>
+      <div class="flex items-center gap-space-md">
+        <!-- <a
+          class="hidden sm:inline-flex items-center justify-center h-10 px-4 rounded-lg bg-surface-container-lowest font-label-lg text-label-lg text-on-surface hover:bg-surface-container hover:text-on-surface transition-all shadow-[0_1px_3px_rgba(15,23,42,0.04)]"
+          data-path="pricing" href="#">免费试用</a> -->
+          <!-- <a
+          class="inline-flex items-center justify-center h-10 px-5 rounded-lg bg-primary text-on-primary font-label-lg text-label-lg hover:bg-primary-container hover:text-on-primary-container transition-all shadow-[0_4px_16px_rgba(70,72,212,0.25)]"
+          data-path="poster-ai" href="http://129.204.49.71:8081" target="_blank">立即制作</a> -->
+        <!-- <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span
+            class="material-symbols-outlined text-on-primary text-[18px]">person</span></div> -->
+      </div>
+    </div>
+  </header>
+  <main class="w-full pt-16 bg-surface min-h-[calc(100vh-4rem)]">
+    <div class="flex flex-col w-full">
+      <!-- Top Hero Glow & Breadcrumb Banner -->
+      <section class="relative w-full overflow-hidden bg-surface pb-16 pt-8">
+        <div
+          class="absolute -top-32 left-1/2 -translate-x-1/2 w-[980px] h-[480px] bg-gradient-to-tr from-primary/15 via-tertiary-container/10 to-secondary-container/10 blur-3xl pointer-events-none rounded-full">
+        </div>
+        <div class="max-w-[1280px] mx-auto px-margin relative z-10">
+          <!-- Announcement Tag -->
+          <div class="flex items-center justify-center mb-6">
+            <div
+              class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-fixed text-on-primary-fixed shadow-sm">
+              <span class="material-symbols-outlined text-[16px] text-primary"
+                style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+              <span class="font-label-md text-label-md">Fast Design · 原创与AI智能快捷生成</span>
+              <span class="inline-block w-1.5 h-1.5 rounded-full bg-primary"></span>
+            </div>
+          </div>
+          <!-- Main Headline -->
+          <div class="text-center max-w-4xl mx-auto mb-8">
+            <h1 class="font-display text-display text-on-surface tracking-tight mb-4">
+              重新定义视觉创作 · <span class="text-primary">原创可控</span>与<span class="text-tertiary">AI智能生成</span>的完美融合
+            </h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
+              主体用户原创可控，可使用AI智能生成。3步搞定明星生日应援海报、卡片、个性超清手机壁纸等设计图，告别繁重PS图层。
+            </p>
+          </div>
+          <!-- Call to Actions -->
+          <div class="flex flex-wrap items-center justify-center gap-4 mb-12">
+            <!-- <a class="inline-flex items-center justify-center h-12 px-7 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg shadow-xl hover:bg-primary-container transition-all gap-2 group"
+               href="http://129.204.49.71:8081" target="_blank">
+              <span class="material-symbols-outlined text-[20px] group-hover:rotate-12 transition-transform">bolt</span>
+              <span class="">立即免费体验</span>
+            </a> -->
+            <a class="inline-flex items-center justify-center h-12 px-6 rounded-xl bg-surface-container-lowest text-on-surface font-label-lg text-label-lg shadow-sm hover:bg-surface-container transition-colors gap-2"
+              href="#workflow-showcase">
+              <span class="material-symbols-outlined text-[20px] text-on-surface-variant">play_circle</span>
+              <span class="">查看功能演练演示</span>
+            </a>
+          </div>
+          <!-- Micro Badges Ribbon -->
+          <div class="flex flex-wrap items-center justify-center gap-3 mb-10">
+            <span
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md shadow-sm">
+              <span class="material-symbols-outlined text-[16px] text-primary">auto_fix_high</span>一键抠图
+            </span>
+            <span
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md shadow-sm">
+              <span class="material-symbols-outlined text-[16px] text-secondary">tune</span> 主体阴影/羽化/镜像可控
+            </span>
+            <span
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md shadow-sm">
+              <span class="material-symbols-outlined text-[16px] text-tertiary">palette</span> 纯色与AI生成图双模
+            </span>
+            <span
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md shadow-sm">
+              <span class="material-symbols-outlined text-[16px] text-outline">aspect_ratio</span> 7大社媒主流预设尺寸
+            </span>
+          </div>
+          <!-- Hero Visual Interface Preview -->
+          <div class="relative w-full rounded-2xl bg-surface-container-lowest p-3 md:p-6 shadow-2xl">
+            <div class="flex items-center justify-between pb-4 border-b border-surface-container-high/60 mb-4 px-2">
+              <div class="flex items-center gap-3">
+                <div class="flex gap-1.5">
+                  <span class="w-3 h-3 rounded-full bg-error/70"></span>
+                  <span class="w-3 h-3 rounded-full bg-surface-variant"></span>
+                  <span class="w-3 h-3 rounded-full bg-secondary-fixed"></span>
+                </div>
+                <span class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-1.5">
+                  <span class="material-symbols-outlined text-primary text-[20px]">brush</span>
+                  智能海报设计工作台
+                </span>
+                <!-- <span
+                  class="hidden sm:inline-flex px-2 py-0.5 rounded text-[11px] font-semibold bg-surface-container-high text-on-surface-variant">
+                  主体已就绪 · 手机海报 9:16
+                </span> -->
+              </div>
+              <!-- <div class="flex items-center gap-2">
+                <span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> 画布自动同步
+                </span>
+              </div> -->
+            </div>
+            <img src="./image/设计工作台.jpeg"></img>
+          </div>
+        </div>
+      </section>
+      <!-- Outline Workflow Section (Reflecting Image 8 Structure) -->
+      <section class="w-full py-20 bg-surface-container-lowest" id="workflow-showcase">
+        <div class="max-w-[1280px] mx-auto px-margin">
+          <!-- Section Header -->
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+            <div>
+              <div
+                class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm mb-3">
+                <span class="material-symbols-outlined text-[14px]">timeline</span>
+                <span class="">流程演示 OUTLINE</span>
+              </div>
+              <h2 class="font-headline-lg text-headline-lg text-on-surface">三大经典场景 · 极简流程演示</h2>
+            </div>
+            <p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+              打破传统修图繁琐步骤。只需一张主体照片，通过抠图、主体参数调整与自适应背景，秒级完成工业级成品输出。
+            </p>
+          </div>
+          <!-- WORKFLOW 1: 手机壁纸制作 -->
+          <div class="mb-20 p-6 md:p-8 rounded-2xl bg-surface-container-low shadow-sm">
+            <div class="flex items-center justify-between flex-wrap gap-4 mb-8">
+              <div class="flex items-center gap-3">
+                <span
+                  class="flex items-center justify-center w-8 h-8 rounded-lg bg-primary text-on-primary font-headline-sm text-headline-sm">1</span>
+                <div>
+                  <h3 class="font-headline-md text-headline-md text-on-surface">例 1：生成手机壁纸</h3>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">从日常生活照片到清新质感手机壁纸，支持艺术排版与渐变渲染</p>
+                </div>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-label-md text-label-md">
+                即时渲染
+              </span>
+            </div>
+            <!-- Horizontal Flow Steps -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 items-stretch relative">
+              <!-- Step 1 -->
+              <div
+                class="flex flex-col bg-surface-container-lowest rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow relative">
+                <div class="flex items-center justify-between mb-3">
+                  <span class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-wider">Step
+                    01</span>
+                  <span class="font-label-sm text-label-sm text-on-surface-variant">原始输入</span>
+                </div>
+                <div
+                  class="w-full aspect-[3/4] rounded-lg overflow-hidden bg-surface-container mb-3 flex items-center justify-center">
+                  <img alt="Step 1 Upload Photo" class="w-full h-full object-cover"
+                    src="./image/845.JPG">
+                </div>
+                <div class="mt-auto">
+                  <h4 class="font-label-lg text-label-lg text-on-surface font-semibold mb-1">上传图片</h4>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">支持JPG/PNG原图导入，即使光照复杂也能自动识别主体轮廓。</p>
+                </div>
+              </div>
+              <!-- Step 2 -->
+              <div
+                class="flex flex-col bg-surface-container-lowest rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow relative">
+                <div class="flex items-center justify-between mb-3">
+                  <span class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-wider">Step
+                    02</span>
+                  <span class="font-label-sm text-label-sm text-on-surface-variant">自动抠图</span>
+                </div>
+                <div
+                  class="w-full aspect-[3/4] rounded-lg overflow-hidden bg-surface-container-high/40 mb-3 flex items-center justify-center p-2">
+                  <img alt="Step 2 Cutout Subject" class="w-full h-full object-contain"
+                    src="./image/845抠图.png">
+                </div>
+                <div class="mt-auto">
+                  <h4 class="font-label-lg text-label-lg text-on-surface font-semibold mb-1">抠出白底图</h4>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">智能模型瞬时剥离繁杂背景，边缘细腻过渡，主体细节完整留存。</p>
+                </div>
+              </div>
+              <!-- Step 3 -->
+              <div
+                class="flex flex-col bg-surface-container-lowest rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow relative">
+                <div class="flex items-center justify-between mb-3">
+                  <span class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-wider">Step
+                    03</span>
+                  <span class="font-label-sm text-label-sm text-on-surface-variant">排版工作台</span>
+                </div>
+                <div
+                  class="w-full aspect-[3/4] rounded-lg overflow-hidden bg-surface-container mb-3 flex items-center justify-center">
+                  <img alt="Step 3 Typography Editor" class="w-full h-full object-cover"
+                    src="./image/添加文字排版.png">
+                </div>
+                <div class="mt-auto">
+                  <h4 class="font-label-lg text-label-lg text-on-surface font-semibold mb-1">添加文字与排版</h4>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">内置艺术字体库（如荧光发光体、3D立体字），一键层叠。</p>
+                </div>
+              </div>
+              <!-- Step 4 -->
+              <div
+                class="flex flex-col bg-surface-container-lowest rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow relative">
+                <div class="flex items-center justify-between mb-3">
+                  <span class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-wider">Step
+                    04</span>
+                  <span class="font-label-sm text-label-sm text-secondary font-semibold">成片输出</span>
+                </div>
+                <div
+                  class="w-full aspect-[3/4] rounded-lg overflow-hidden bg-surface-container mb-3 flex items-center justify-center">
+                  <img alt="Step 4" class="w-full h-full object-contain"
+                    src="./image/845手机壁纸.jpeg">
+                </div>
+                <div class="mt-auto">
+                  <h4 class="font-label-lg text-label-lg text-on-surface font-semibold mb-1">基础背景合成</h4>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">无缝叠加纵向梦幻粉蓝渐变，调配阴影虚化，极简高清壁纸直接保存。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- WORKFLOW 2: 生成海报图 -->
+          <div class="p-6 md:p-8 rounded-2xl bg-surface-container-low shadow-sm">
+            <div class="flex items-center justify-between flex-wrap gap-4 mb-8">
+              <div class="flex items-center gap-3">
+                <span
+                  class="flex items-center justify-center w-8 h-8 rounded-lg bg-tertiary text-on-tertiary font-headline-sm text-headline-sm">2</span>
+                <div>
+                  <h3 class="font-headline-md text-headline-md text-on-surface">例 2：生成海报图 (明星/生日/电商宣发)</h3>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">主体精准可控 + 提示词AI深度生成，重塑高定级赛博复古海报</p>
+                </div>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md">
+                AI 提示词语义扩增 · 100% 主体保真
+              </span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+              <!-- Step 1 -->
+              <div class="flex flex-col bg-surface-container-lowest rounded-xl p-5 shadow-sm">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="flex items-center gap-2">
+                    <span
+                      class="w-6 h-6 rounded-full bg-tertiary/10 text-tertiary flex items-center justify-center font-bold text-xs">A</span>
+                    <h4 class="font-headline-sm text-headline-sm text-on-surface">上传图片与素材</h4>
+                  </div>
+                  <span class="font-label-sm text-label-sm text-on-surface-variant">社媒素材导入</span>
+                </div>
+                <div
+                  class="w-full aspect-[9/14] rounded-lg overflow-hidden bg-surface-container mb-4 flex items-center justify-center">
+                  <img alt="Workflow 2 Source photo" class="w-full h-full object-cover"
+                    src="./image/高允真截图.jpeg">
+                </div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">
+                  支持从小红书、相册直接拖拽图片。即使带有复杂拍摄景深与座椅家具，引擎均能毫秒完成主体解析。
+                </p>
+              </div>
+              <!-- Step 2 -->
+              <div class="flex flex-col bg-surface-container-lowest rounded-xl p-5 shadow-sm">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="flex items-center gap-2">
+                    <span
+                      class="w-6 h-6 rounded-full bg-tertiary/10 text-tertiary flex items-center justify-center font-bold text-xs">B</span>
+                    <h4 class="font-headline-sm text-headline-sm text-on-surface">抠出白底图与主体编辑</h4>
+                  </div>
+                  <span class="font-label-sm text-label-sm text-primary font-semibold">可视化编辑台</span>
+                </div>
+                <div
+                  class="w-full aspect-[9/14] rounded-lg overflow-hidden bg-surface-container mb-4 flex items-center justify-center">
+                  <div
+                    class="w-full h-full relative p-2 flex flex-col justify-center items-center bg-surface-container-high/40">
+                    <img alt="White cutout mode" class="max-h-[85%] object-contain"
+                      src="./image/高允真抠图.png">
+                    <div class="w-full flex items-center justify-between px-2 pt-2 text-[11px] text-on-surface-variant">
+                      <span class="">阴影强度: 45%</span>
+                      <span class="">不透明度: 100%</span>
+                      <span class="">居中吸附对齐</span>
+                    </div>
+                  </div>
+                </div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">
+                  主体自由拖拽缩放，配备对齐参考线、阴影强度滑杆及去杂边开关。确保人像或产品在画幅正中央完美居中。
+                </p>
+              </div>
+              <!-- Step 3 -->
+              <div class="flex flex-col bg-surface-container-lowest rounded-xl p-5 shadow-sm">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="flex items-center gap-2">
+                    <span
+                      class="w-6 h-6 rounded-full bg-tertiary/10 text-tertiary flex items-center justify-center font-bold text-xs">C</span>
+                    <h4 class="font-headline-sm text-headline-sm text-on-surface">AI 生成背景</h4>
+                  </div>
+                  <span class="font-label-sm text-label-sm text-tertiary font-semibold">华丽光影合成</span>
+                </div>
+                <div
+                  class="w-full aspect-[9/14] rounded-lg overflow-hidden bg-surface-container mb-4 flex items-center justify-center">
+                  <div class="w-full h-full relative flex items-center justify-center bg-inverse-surface">
+                    <img alt="AI Prompt Driven Final Poster" class="w-full h-full object-contain"
+                      src="./image/高允真设计图.jpeg">
+                    <!-- <div
+                      class="absolute bottom-2 left-2 right-2 bg-inverse-surface/85 backdrop-blur-md p-2 rounded text-[11px] text-inverse-on-surface leading-tight">
+                      <span class="text-tertiary-fixed font-semibold">AI氛围描述:</span> 蓝调复古赛博朋克风应援海报，拱形框，金属银花与星芒，HAPPY
+                      BIRTHDAY。
+                    </div> -->
+                  </div>
+                </div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">
+                  智能生成金属质感、罗马柱、冷艳银花与高级排版,主体百分百保持原质感，一键导出印刷级海报。
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="mt-12 p-6 md:p-8 rounded-2xl bg-surface-container-low shadow-sm">
+            <div class="flex items-center justify-between flex-wrap gap-4 mb-8">
+              <div class="flex items-center gap-3"><span
+                  class="flex items-center justify-center w-8 h-8 rounded-lg bg-secondary-container text-on-secondary-container font-headline-sm text-headline-sm">3</span>
+                <div>
+                  <h3 class="font-headline-md text-headline-md text-on-surface">例 3：生成手幅与小卡设计 (爱豆应援 / 唯美周边套系)</h3>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">从原始生活照到2:3梦幻小卡与3:1宽幅手幅，全套应援物料一键同步生成</p>
+                </div>
+              </div><span
+                class="px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md">多规格协同
+                · 2:3竖版小卡 + 3:1宽版手幅</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch mb-8">
+              <div class="flex flex-col bg-surface-container-lowest rounded-xl p-5 shadow-sm">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="flex items-center gap-2"><span
+                      class="w-6 h-6 rounded-full bg-secondary/10 text-secondary flex items-center justify-center font-bold text-xs">A</span>
+                    <h4 class="font-headline-sm text-headline-sm text-on-surface">上传图片素材</h4>
+                  </div><span class="font-label-sm text-label-sm text-on-surface-variant">原图素材导入</span>
+                </div>
+                <div
+                  class="w-full aspect-[9/14] rounded-lg overflow-hidden bg-surface-container mb-4 flex items-center justify-center">
+                  <img alt="李圣经原图素材" class="w-full h-full object-cover"
+                    src="./image/李圣经.jpeg">
+                </div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">
+                  小红书/日常活动照片直接导入，无论现场杂乱背景与拍摄光照，算法秒级识别主体轮廓与人像层级。</p>
+              </div>
+              <div class="flex flex-col bg-surface-container-lowest rounded-xl p-5 shadow-sm">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="flex items-center gap-2"><span
+                      class="w-6 h-6 rounded-full bg-secondary/10 text-secondary flex items-center justify-center font-bold text-xs">B</span>
+                    <h4 class="font-headline-sm text-headline-sm text-on-surface">抠出白底图与主体编辑</h4>
+                  </div><span class="font-label-sm text-label-sm text-primary font-semibold">自动人像抠图</span>
+                </div>
+                <div
+                  class="w-full aspect-[9/14] rounded-lg overflow-hidden bg-surface-container mb-4 flex items-center justify-center">
+                  <div
+                    class="w-full h-full relative p-2 flex flex-col justify-center items-center bg-surface-container-high/40">
+                    <img alt="李圣经精细抠图" class="max-h-[85%] object-contain"
+                      src="./image/李圣经抠图.png">
+                    <div class="w-full flex items-center justify-between px-2 pt-2 text-[11px] text-on-surface-variant">
+                    </div>
+                  </div>
+                </div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">精准分离人物发丝与透光玻璃球质感，保留锁骨与蕾丝边缘，支持翻转、缩放与自适应居中对齐。
+                </p>
+              </div>
+              <div class="flex flex-col bg-surface-container-lowest rounded-xl p-5 shadow-sm">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="flex items-center gap-2"><span
+                      class="w-6 h-6 rounded-full bg-secondary/10 text-secondary flex items-center justify-center font-bold text-xs">C</span>
+                    <h4 class="font-headline-sm text-headline-sm text-on-surface">生成小卡图、排版<span
+                        style="letter-spacing: -0.01em;" class="">文字</span></h4>
+                  </div><span class="font-label-sm text-label-sm text-secondary font-semibold">竖版小卡 2:3 规格</span>
+                </div>
+                <div
+                  class="w-full aspect-[9/14] rounded-lg overflow-hidden bg-surface-container mb-4 flex items-center justify-center">
+                  <img alt="李圣经应援小卡" class="w-full h-full object-cover"
+                    src="./image/李圣经小卡.jpeg">
+                </div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">生成带有爱心发光光晕与星芒边框的梦幻杏粉渐变背景。</p>
+              </div>
+            </div>
+            <div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+              <div
+                class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-5 pb-4 border-b border-surface-container-high/60">
+                <div class="flex items-center gap-3"><span
+                    class="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-sm">D</span>
+                  <div>
+                    <h4 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-2">根据提示词 AI 生成手幅背景
+                      <span class="text-primary font-normal text-body-sm">(3:1 超宽横幅应援物料)</span></h4>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant">利用同一套抠图主体，无缝扩展为横版全景现场应援手幅与长条宣传Banner
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2 flex-wrap"><span
+                    class="px-2.5 py-1 rounded-md bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm">3:1
+                    横版手幅 (3000×1000)</span><span
+                    class="px-2.5 py-1 rounded-md bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">100%
+                    细节保留 · 全画幅完整展示</span></div>
+              </div>
+              <div
+                class="w-full rounded-xl overflow-hidden bg-inverse-surface border border-outline-variant/30 mb-5 relative shadow-md">
+                <img alt="李圣经3:1应援手幅" class="w-full h-auto object-cover block"
+                  src="./image/李圣经手幅.jpeg">
+              </div>
+              <div
+                class="bg-surface-container-low p-4 rounded-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                <div class="flex items-start gap-2.5"><span
+                    class="material-symbols-outlined text-secondary text-[20px] mt-0.5">psychology</span>
+                  <div class="font-body-sm text-body-sm text-on-surface"><span
+                      class="font-semibold text-secondary">自定义提示词：</span>“横向韩系饭圈手幅设计，暖红复古室内场景，柔和暖调胶片质感。叠加半透明圆形光斑、细碎星光闪片。左侧文字，搭配简约手绘小装饰，朦胧氛围感，胶片颗粒，柔光散景”</div>
+                </div>
+                <div class="flex items-center gap-2 shrink-0"><span
+                    class="px-3 py-1.5 rounded-lg bg-surface-container-lowest text-primary font-label-sm text-label-sm font-semibold shadow-sm">一键导出超高清印刷级文件</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Core Feature Matrix (3 Pillars) -->
+      <section class="w-full py-20 bg-surface">
+        <div class="max-w-[1280px] mx-auto px-margin">
+          <div class="text-center max-w-2xl mx-auto mb-16">
+            <h2 class="font-headline-lg text-headline-lg text-on-surface mb-3">三大核心支柱 · 解锁视觉质感跃迁</h2>
+            <p class="font-body-lg text-body-lg text-on-surface-variant">
+              从底层算法到交互设计，皆为极致创作品质量身打造。
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Pillar 1 -->
+            <div
+              class="flex flex-col bg-surface-container-lowest rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300">
+              <div class="w-12 h-12 rounded-xl bg-primary-fixed flex items-center justify-center text-primary mb-6">
+                <span class="material-symbols-outlined text-[28px]">accessibility_new</span>
+              </div>
+              <h3 class="font-headline-sm text-headline-sm text-on-surface mb-3">主体精准可控</h3>
+              <p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                告别传统AI生成人脸失真、手指变形的硬伤。用户上传的主体保持原生像素保真度，拥有独立完整控制面板。
+              </p>
+              <ul class="space-y-3 font-body-sm text-body-sm text-on-surface mt-auto">
+                <li class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                  <span class="">一键去背景、自适应边缘抗锯齿去杂边</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                  <span class="">白色轮廓描边（贴纸风/二次元轮廓）</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                  <span class="">主体投射阴影强度 (0-100%) 与模糊度</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                  <span class="">水平/垂直镜像变换与图层顺序置顶/置底</span>
+                </li>
+              </ul>
+            </div>
+            <!-- Pillar 2 -->
+            <div
+              class="flex flex-col bg-surface-container-lowest rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300">
+              <div class="w-12 h-12 rounded-xl bg-tertiary-fixed flex items-center justify-center text-tertiary mb-6">
+                <span class="material-symbols-outlined text-[28px]">brush</span>
+              </div>
+              <h3 class="font-headline-sm text-headline-sm text-on-surface mb-3">双模背景引擎</h3>
+              <p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                既能制作日常简约手机壁纸，亦可调用云端AI生成繁复华丽的明星应援与商业级大促海报。
+              </p>
+              <div class="space-y-4 mt-auto">
+                <div class="p-3 rounded-lg bg-surface-container-low">
+                  <div class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1.5 mb-1">
+                    <span class="material-symbols-outlined text-[16px] text-secondary">image</span>
+                    <span class="">简约基础背景 (本地实时渲染 · 免费)</span>
+                  </div>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">纯色简约、纵向/横向渐变、径向渐变、细格纹、磨砂质感、细闪星光。</p>
+                </div>
+                <div class="p-3 rounded-lg bg-primary-fixed/40">
+                  <div class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1.5 mb-1">
+                    <span class="material-symbols-outlined text-[16px] text-primary">psychology</span>
+                    <span class="">AI生成背景 (云端模型 · 提示词驱动)</span>
+                  </div>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">自动中心留白，画面主体细节100%保留，仅在画布按要求生成背景图。</p>
+                </div>
+              </div>
+            </div>
+            <!-- Pillar 3 -->
+            <div
+              class="flex flex-col bg-surface-container-lowest rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300">
+              <div class="w-12 h-12 rounded-xl bg-secondary-fixed flex items-center justify-center text-secondary mb-6">
+                <span class="material-symbols-outlined text-[28px]">view_quilt</span>
+              </div>
+              <h3 class="font-headline-sm text-headline-sm text-on-surface mb-3">多端全尺寸预设</h3>
+              <p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                预装主流社交矩阵全规格，一键切换画幅，主体自动跟随参考线对齐居中，无需二次裁切。
+              </p>
+              <div class="grid grid-cols-2 gap-2 mt-auto">
+                <div class="p-2.5 rounded-lg bg-surface-container text-center">
+                  <div class="font-label-sm text-label-sm font-bold text-on-surface">手机海报 / 壁纸</div>
+                  <div class="text-[11px] text-on-surface-variant font-mono">9:16 (1080×1920)</div>
+                </div>
+                <div class="p-2.5 rounded-lg bg-surface-container text-center">
+                  <div class="font-label-sm text-label-sm font-bold text-on-surface">小红书封面</div>
+                  <div class="text-[11px] text-on-surface-variant font-mono">3:4 (900×1200)</div>
+                </div>
+                <div class="p-2.5 rounded-lg bg-surface-container text-center">
+                  <div class="font-label-sm text-label-sm font-bold text-on-surface">横版 Banner</div>
+                  <div class="text-[11px] text-on-surface-variant font-mono">16:9 (1920×1080)</div>
+                </div>
+                <div class="p-2.5 rounded-lg bg-surface-container text-center">
+                  <div class="font-label-sm text-label-sm font-bold text-on-surface">应援手幅 / 小卡</div>
+                  <div class="text-[11px] text-on-surface-variant font-mono">3:1 / 2:3 规格</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Interactive Style Switching Spotlight (Before / After Mode) -->
+      <section class="w-full py-20 bg-surface-container-low">
+        <div class="max-w-[1280px] mx-auto px-margin">
+          <div class="bg-surface-container-lowest rounded-3xl p-8 md:p-12 shadow-xl">
+            <div class="max-w-3xl mx-auto text-center mb-12">
+              <span class="font-label-md text-label-md text-primary font-bold uppercase tracking-wider">Style
+                Diversity</span>
+              <h2 class="font-headline-lg text-headline-lg text-on-surface mt-2 mb-4">同一个主体 · 随心切换万千风格</h2>
+              <p class="font-body-md text-body-md text-on-surface-variant">
+                只需更换提示词或切换背景预设，同一张原图即可在极简冷调日常壁纸与璀璨舞台庆生海报之间自如转换。
+              </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <!-- Comparison Left: Clean Gradient Mode -->
+              <div class="flex flex-col rounded-2xl bg-surface-container-low p-5">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-secondary"></span>
+                    <span class="font-headline-sm text-headline-sm text-on-surface">模式 A: 极简纯净渐变</span>
+                  </div>
+                  <span
+                    class="font-label-sm text-label-sm text-secondary-container bg-secondary-fixed px-2.5 py-1 rounded-full">零杂质
+                    · 清爽日常</span>
+                </div>
+                <div
+                  class="w-full aspect-[9/14] rounded-xl overflow-hidden bg-surface-container flex items-center justify-center p-3 relative shadow-inner">
+                  <div
+                    class="w-full h-full rounded-lg bg-gradient-to-b from-[#eef2ff] via-[#dbeafe] to-[#fae8ff] flex items-center justify-center relative overflow-hidden">
+                    <img alt="Clean gradient preview" class="h-4/5 object-contain drop-shadow-md"
+                      src="./image/高允真素背景.jpeg">
+                    <div class="absolute bottom-4 text-center font-label-md text-label-md text-on-surface-variant/80">
+                      <span class="">纯色平滑微光 · 适合锁屏与桌面</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-4 flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+                  <span class="">渲染开销: 0秒 (即时应用)</span>
+                  <span class="">适用: 手机锁屏/日常极简</span>
+                </div>
+              </div>
+              <!-- Comparison Right: AI Advanced Cyber Vintage Mode -->
+              <div class="flex flex-col rounded-2xl bg-inverse-surface text-inverse-on-surface p-5">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-tertiary-fixed animate-ping"></span>
+                    <span class="font-headline-sm text-headline-sm text-inverse-on-surface">模式 B: AI 豪华应援/盛典</span>
+                  </div>
+                  <span
+                    class="font-label-sm text-label-sm text-tertiary-fixed bg-tertiary-container px-2.5 py-1 rounded-full">重金属花卉
+                    · 赛博复古</span>
+                </div>
+                <div
+                  class="w-full aspect-[9/14] rounded-xl overflow-hidden flex items-center justify-center relative shadow-2xl">
+                  <img alt="Advanced poster output" class="w-full h-full object-contain"
+                    src="./image/高允真设计图.jpeg">
+                  <div
+                    class="absolute top-3 right-3 bg-inverse-surface/80 backdrop-blur-md px-2.5 py-1 rounded text-[11px] text-tertiary-fixed border border-tertiary-fixed/20">
+                    1080 × 1920 高清输出
+                  </div>
+                </div>
+                <div
+                  class="mt-4 flex items-center justify-between font-label-sm text-label-sm text-inverse-on-surface/70">
+                  <span class="">主体保真度: 100% 无破坏</span>
+                  <span class="">适用: 明星超话/巡演/生日KV</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Creator Stats & Social Proof -->
+      <section class="w-full py-16 bg-surface">
+        <div class="max-w-[1280px] mx-auto px-margin">
+          <!-- Numbers Strip -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 text-center">
+            <div class="p-6 rounded-2xl bg-surface-container-low">
+              <div class="font-display text-display text-primary mb-1">300K+</div>
+              <div class="font-label-lg text-label-lg text-on-surface font-semibold">创作者信赖使用</div>
+              <div class="font-body-sm text-body-sm text-on-surface-variant">遍布应援个站与品牌市场</div>
+            </div>
+            <div class="p-6 rounded-2xl bg-surface-container-low">
+              <div class="font-display text-display text-secondary mb-1">3秒</div>
+              <div class="font-label-lg text-label-lg text-on-surface font-semibold">毫秒级智能扣图</div>
+              <div class="font-body-sm text-body-sm text-on-surface-variant">边缘抗杂色边缘算法</div>
+            </div>
+            <div class="p-6 rounded-2xl bg-surface-container-low">
+              <div class="font-display text-display text-tertiary mb-1">100%</div>
+              <div class="font-label-lg text-label-lg text-on-surface font-semibold">主体原图细节保留</div>
+              <div class="font-body-sm text-body-sm text-on-surface-variant">杜绝传统AI破坏五官神态</div>
+            </div>
+            <div class="p-6 rounded-2xl bg-surface-container-low">
+              <div class="font-display text-display text-primary mb-1">40+</div>
+              <div class="font-label-lg text-label-lg text-on-surface font-semibold">潮流美学设计预设</div>
+              <div class="font-body-sm text-body-sm text-on-surface-variant">持续每周更新最新流行版式</div>
+            </div>
+          </div>
+          <!-- Testimonials -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-6 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+              <p class="font-body-md text-body-md text-on-surface mb-6 leading-relaxed">
+                “以前给爱豆做生日应援手幅和小卡，要开PS调遮罩再加笔刷排版至少2小时。用Lumina直接导入生图，提示词敲入'蓝调复古金属花'，1分钟直接成图，印刷分辨率也完全没问题！”
+              </p>
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center font-bold text-primary">
+                  韩</div>
+                <div>
+                  <div class="font-label-lg text-label-lg text-on-surface font-semibold">小韩站姐 · 允真应援站</div>
+                  <div class="font-label-sm text-label-sm text-on-surface-variant">粉丝数 120,000+</div>
+                </div>
+              </div>
+            </div>
+            <div class="p-6 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+              <p class="font-body-md text-body-md text-on-surface mb-6 leading-relaxed">
+                “做小红书美妆与穿搭笔记封面，最怕背景杂乱抢了人像风头。通过主体阴影调节和纵向渐变壁纸模式，能迅速把日常自拍转为高级极简杂志感大片，爆款率翻了三倍。”
+              </p>
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center font-bold text-secondary">
+                  林</div>
+                <div>
+                  <div class="font-label-lg text-label-lg text-on-surface font-semibold">林阿七 · 时尚博主</div>
+                  <div class="font-label-sm text-label-sm text-on-surface-variant">小红书头部美妆创作者</div>
+                </div>
+              </div>
+            </div>
+            <div class="p-6 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+              <p class="font-body-md text-body-md text-on-surface mb-6 leading-relaxed">
+                “电商大促期间需要为几百款商品换上赛博朋克和节日氛围背景。Lumina的多尺寸预设与主体100%保留机制，让我们无需重新拍摄商品，直接批量生产各渠道Banner。”
+              </p>
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-10 h-10 rounded-full bg-tertiary-fixed flex items-center justify-center font-bold text-tertiary">
+                  周</div>
+                <div>
+                  <div class="font-label-lg text-label-lg text-on-surface font-semibold">周维 · 品牌视觉总监</div>
+                  <div class="font-label-sm text-label-sm text-on-surface-variant">新消费电商品牌工作室</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Final Call To Action Banner -->
+      <section class="w-full py-20 bg-surface">
+        <div class="max-w-[1280px] mx-auto px-margin">
+          <div
+            class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-primary via-primary-container to-tertiary p-8 md:p-16 text-center text-on-primary shadow-2xl">
+            <div class="relative z-10 max-w-2xl mx-auto">
+              <span
+                class="inline-block px-3 py-1 rounded-full bg-on-primary/10 backdrop-blur-md font-label-md text-label-md text-on-primary mb-4">
+                零设计门槛 · 快速上手
+              </span>
+              <h2 class="font-headline-lg text-headline-lg mb-4 text-on-primary">
+                无需设计基础，轻松做出爆款海报与个性壁纸
+              </h2>
+              <!-- <p class="font-body-lg text-body-lg text-on-primary/90 mb-8">
+                立即上传一张照片，体验前所未有的主体原创可控与AI背景氛围魔法。
+              </p> -->
+              <div class="flex flex-wrap items-center justify-center gap-4">
+                <!-- <a class="inline-flex items-center justify-center h-12 px-8 rounded-xl bg-surface-container-lowest text-primary font-label-lg text-label-lg font-bold shadow-lg hover:bg-surface-container transition-all"
+                   href="http://129.204.49.71:8081" target="_blank">
+                  立即开启免费创作
+                </a> -->
+
+              </div>
+            </div>
+            <!-- Ambient decorative shapes -->
+            <div
+              class="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-tertiary-container/30 blur-2xl pointer-events-none">
+            </div>
+            <div
+              class="absolute -top-20 -left-20 w-80 h-80 rounded-full bg-secondary-container/30 blur-2xl pointer-events-none">
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="w-full bg-surface-container-low shadow-[0_-1px_8px_rgba(0,0,0,0.02)] mt-space-xl">
+    <div class="max-w-[1280px] mx-auto px-margin py-space-xl">
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-space-lg mb-space-xl">
+        <div class="col-span-2 flex flex-col gap-space-md">
+          <div class="flex items-center gap-space-sm">
+            <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-on-primary"><span
+                class="material-symbols-outlined text-[18px]">auto_awesome</span></div><span
+              class="font-headline-sm text-headline-sm text-on-surface">Fast Deaign</span>
+          </div>
+          <p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">
+            面向创作者与市场团队的次世代智能海报与超清壁纸设计引擎，让灵感在画布上瞬时生成并完美排版。</p>
+          <div class="flex items-center gap-space-sm pt-space-xs"><span
+              class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors"><span
+                class="material-symbols-outlined text-[18px]">terminal</span></span><span
+              class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors"><span
+                class="material-symbols-outlined text-[18px]">forum</span></span><span
+              class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors"><span
+                class="material-symbols-outlined text-[18px]">share</span></span></div>
+        </div>
+        <div class="flex flex-col gap-space-sm"><span
+            class="font-label-lg text-label-lg text-on-surface font-semibold">核心产品</span><a
+            class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
+            data-path="poster-ai" href="#">智能海报生成</a><a
+            class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
+            data-path="wallpaper-maker" href="#">手机壁纸创作</a><a
+            class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
+            data-path="workflow" href="#">Prompt视觉画布</a><a
+            class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
+            data-path="features" href="#">批量排版引擎</a></div>
+        <div class="flex flex-col gap-space-sm"><span
+            class="font-label-lg text-label-lg text-on-surface font-semibold">模板中心</span><a
+            class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
+            data-path="showcase" href="#">社交媒体宣发</a><a
+            class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
+            data-path="showcase" href="#">电商大促KV</a><a
+            class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
+            data-path="showcase" href="#">4K极简手机壁纸</a><a
+            class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
+            data-path="showcase" href="#">文娱演出海报</a></div>
+        <!-- <div class="flex flex-col gap-space-sm"><span
+            class="font-label-lg text-label-lg text-on-surface font-semibold">资源与支持</span><a
+            class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
+            data-path="pricing" href="#">版本定价</a><a
+            class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
+            data-path="home" href="#">使用教程与API</a><a
+            class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
+            data-path="home" href="#">创作者社群</a><a
+            class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
+            data-path="home" href="#">服务条款与隐私</a></div> -->
+      </div>
+      <div class="pt-space-md flex flex-col md:flex-row items-center justify-between gap-space-sm"><span
+          class="font-label-sm text-label-sm text-on-surface-variant">© 2026&nbsp; Fast Design 智能海报设计工具. All rights
+          reserved.</span>
+        <div class="flex items-center gap-space-md"></div>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+
+
+
+</body>
+
+</html>
